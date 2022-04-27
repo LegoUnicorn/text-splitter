@@ -3,10 +3,10 @@ from distutils.log import error
 def openFile():
     global fileName
     global fullFileName
+    global f
     fileName = input("File name without file extension (txt): ")
     fullFileName = fileName + ".txt"
     f = open(fullFileName, 'r')
-    return f
 
 def splitFunc():
     openFile()
@@ -35,17 +35,20 @@ def splitFunc():
     wr.close()
 
 def dedupFunc():
-    
     openFile()
+
+    newFile = fileName + "_dedupped"
+    wr = open(newFile, 'x')
     tempList = []
+
     nl = f.readline()
     while nl != "":
         tempList.append(nl)
         nl = f.readline()
-    
-    
+    tempList = list(dict.fromkeys(tempList))
 
-
+    f.close()
+    wr.close()
 
 
 while True:
@@ -54,7 +57,7 @@ while True:
         if run == "split":
             splitFunc()
         elif run == "dedup":
-
+            dedupFunc()
         break
             
     except:
