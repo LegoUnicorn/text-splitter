@@ -1,6 +1,6 @@
 from distutils.log import error
-while True:
-    try:
+
+def splitFunc():
         fileName = input("File name without file extension (txt): ")
         split = input("Split by how much (int): ")
         newFile = fileName + "_splitby_" + split
@@ -27,6 +27,15 @@ while True:
 
         f.close()
         wr.close()
+
+
+
+while True:
+    try:
+        run = input("Select Function (split, dedup): ")
+        if run == "split":
+            splitFunc()
+        elif run == "dedup":
 
         break
             
