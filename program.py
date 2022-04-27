@@ -22,12 +22,16 @@ def splitFunc():
     while nl != '':  
         if c == int(split):
             wr.write(nl)
+            nl = f.readline()
             c = 1
+        else:
+            nl = f.readline()
+            c += 1
         if c2 % 1000 == 0:
             print("Scanned " + str(c2) + "lines.")
-        c += 1
         c2 += 1
-        nl = f.readline()
+        print(c)
+        
     print("Scanned " + str(c2) + "lines.")
     print("New file created called " + newFile + ".")
 
