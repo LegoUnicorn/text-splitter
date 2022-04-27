@@ -50,6 +50,8 @@ def dedupFunc():
         tempList.append(nl)
         nl = f.readline()
     tempList = list(dict.fromkeys(tempList))
+    for x in tempList:
+        wr.write(x)
 
     f.close()
     wr.close()
